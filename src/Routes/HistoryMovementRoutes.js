@@ -1,9 +1,9 @@
 import "./styles/HistoryMovements.css"
 
-export default  function HistoryMovement(){
+export default  function HistoryMovementRoutes(){
     return(
         <section className="sectionListMovement">
-            <div className="div-subtitleInfo">
+            <div className="movement-subtitleInfo">
                 <span className="span-tools">herramienta</span>
                 <span className="span-from">desde</span>
                 <span className="span-to">hasta</span>

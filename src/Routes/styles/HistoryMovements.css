@@ -1,3 +1,7 @@
+:root{
+    --colorBorder: rgba(116, 116, 116, 0.26);
+}
+
 .sectionListMovement{
     margin-top: 20px;
     display: flex;
@@ -5,24 +9,41 @@
     align-items: center;
 }
 
-.div-subtitleInfo{
+.movement-subtitleInfo{
     width: 100%;
     display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.movement-subtitleInfo span{
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    font-size: 1.13rem;
+    font-weight: 600;
+}
+
+.sectionListMovement ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .sectionListMovement ul li{
     display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
-
-.sectionListMovement ul li p, .div-subtitleInfo span{
+.sectionListMovement ul li p{
+    padding: 5px 0;
+}
+.sectionListMovement ul li p, .movement-subtitleInfo span{
     align-content: center;
     text-align: center;
+    border-left: .4px solid var(--colorBorder);
+    border-right: .4px solid var(--colorBorder);
 }
 
 .span-tools { grid-area: 1 / 1 / 2 / 2; }
