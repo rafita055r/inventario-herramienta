@@ -6,6 +6,8 @@ import {BrowserRouter, Route, Router, Routes} from "react-router"
 import reportWebVitals from './reportWebVitals';
 import NavBar from './Routes/NavBar';
 import HistoryMovement from './Routes/HistoryMovement';
+import Tools from './Routes/Tools';
+import Obras from './Routes/Obras';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +15,8 @@ root.render(
       <NavBar />
     <Routes>
       <Route path='/' element={<HistoryMovement />} />
+      <Route path='/obras' element={<Obras />} />
+      <Route path='/herramientas' element={<Tools />} />
     </Routes>
   </BrowserRouter>
 );
