@@ -3,7 +3,7 @@
 }
 
 .sectionListMovement{
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,3 +55,47 @@
 .p-from { grid-area: 1 / 2 / 2 / 3; }
 .p-to { grid-area: 1 / 3 / 2 / 4; }
 .p-date { grid-area: 1 / 4 / 2 / 5; }
+
+/* -------------------------- */
+
+.btn-add {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 90%;
+}
+.btn-add:hover{
+    background-color: #333;
+}
+
+.form-movement {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-movement input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-movement button {
+    background-color: #008060;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.form-movement button:hover{
+    background-color: #00664d;
+}

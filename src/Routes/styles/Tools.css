@@ -63,15 +63,17 @@
     display: block;
     margin: 0 auto 1rem auto;
     padding: 8px 16px;
-    background-color: #ffffff;
+    background-color: #000;
+    color: white;
     border: 1px solid #ccc;
     border-radius: 6px;
     cursor: pointer;
     transition: 0.2s;
+    width: 90%;
 }
 
 .add-tool-btn:hover {
-    background-color: #f3f3f3;
+    background-color: #333;
 }
 
 .tool-form {
@@ -93,7 +95,7 @@
 
 .submit-btn {
     padding: 6px 12px;
-    background-color: #2c7be5;
+    background-color: #008060;
     color: white;
     border: none;
     border-radius: 4px;
@@ -101,7 +103,7 @@
 }
 
 .submit-btn:hover {
-    background-color: #1a5ecb;
+    background-color: #00664d;
 }
 
 li {
