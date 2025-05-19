@@ -1,10 +1,10 @@
-import { useState } from "react";
 import "./styles/HistoryMovements.css"
+import { useEffect, useState } from "react";
+import useStore from "../services/useStore";
+import LoaderMain from "../Components/LoaderMain";
 
-const historyMovements = [
-    {toolMoved: 'moladora marca chica', from: 'galpon', to: 'YPF', date: '03/08/25', horary: '11:50'}
-]
 export default  function HistoryMovementRoutes(){
+    const {history, cargarDatosDesdeAPI} = useStore();
     const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({
         toolMoved: '',
@@ -13,8 +13,8 @@ export default  function HistoryMovementRoutes(){
         date: '',
         horary: ''
     });
-
-    const toggleForm = () => setShowForm(!showForm);
+    
+    // const toggleForm = () => setShowForm(!showForm);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,16 +23,19 @@ export default  function HistoryMovementRoutes(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        historyMovements.push({ ...formData });
         setFormData({ toolMoved: '', from: '', to: '', date: '', horary: '' });
         setShowForm(false);
     };
 
+    useEffect(()=>{
+        cargarDatosDesdeAPI();
+    }, [cargarDatosDesdeAPI]);
+
     return(
         <section className="sectionListMovement">
-            <button className="btn-add" onClick={toggleForm}>
+            {/* <button className="btn-add" onClick={toggleForm}>
                 {showForm ? "Cancelar" : "Agregar Movimiento"}
-            </button>
+            </button> */}
 
             {showForm && (
                 <form className="form-movement" onSubmit={handleSubmit}>
@@ -47,22 +50,24 @@ export default  function HistoryMovementRoutes(){
             
             <div className="movement-subtitleInfo">
                 <span className="span-tools">herramienta</span>
+                <span className="span-cantidad">#</span>
                 <span className="span-from">desde</span>
                 <span className="span-to">hasta</span>
                 <span className="span-date">fecha</span>
             </div>
             <ul>
                 {
-                    historyMovements.map((movement, key)=>(
-                        <li>
-                            <p className="p-tools">{movement.toolMoved}</p>
-                            <p className="p-from">{movement.from}</p>
-                            <p className="p-to">{movement.to}</p>
-                            <p className="p-date">{movement.date}<br/>
-                            {movement.horary}
+                    history.length > 0 ? history.reverse().map((registro)=>(
+                        <li key={registro.id_register}>
+                            <p className="p-tools">{registro.tool.nombre}</p>
+                            <p className="p-cantidad">{registro.cantidad}</p>
+                            <p className="p-from">{registro.previusWork?.nombre}</p>
+                            <p className="p-to">{registro.currentrWork.nombre}</p>
+                            <p className="p-date">{registro.fecha}<br/>
+                            {registro.hora}
                             </p>
                         </li>
-                    ))
+                    )) : <LoaderMain />
                 }
                 
             </ul>

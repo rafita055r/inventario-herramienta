@@ -1,21 +1,23 @@
 .li_Work{
-    list-style: none;
-    border-bottom: 1px solid #4242423d;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  border-bottom: 1px solid #4242423d;
+  width: 100%;
 }
 .tools-container {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-  }
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
   
-  .tools-container.open {
-    max-height: 500px; /* ajustá según la altura estimada del contenido */
-  }
+.tools-container.open {
+  max-height: 500px; /* ajustá según la altura estimada del contenido */
+}
   
-  .listTools {
-    list-style-type: none;
-    margin-left: 20px;
-    padding: 0;
-  }
+.listTools {
+  list-style-type: none;
+  padding: 0;
+  overflow-x: scroll;
+}
   

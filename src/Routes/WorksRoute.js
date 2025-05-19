@@ -1,82 +1,57 @@
-import { useState } from "react";
-import WorkElement from "../Components/WorkElement";
 import "./styles/Works.css";
+import { useEffect, useState } from "react";
+import WorkElement from "../Components/WorkElement";
+import { FormAddWork } from "../Components/FormAddWork";
+import useStore from "../services/useStore";
+import LoaderMain from "../Components/LoaderMain";
 
+export default function WorksRoute({worksList}) {
 
+    
 
-
-
-const initialWorks = [
-    {
-      name: "Ypf Norte",
-      tools: [
-        { name: "Moladora loca chica con cable 20 metros", quantity: 2, brand: "Makita" },
-        { name: "Pala Hancha", quantity: 4, brand: "Generico" },
-        { name: "Balde", quantity: 5, brand: "Generico" },
-      ]
-    },
-    {
-      name: "Olivetti",
-      tools: [
-        { name: "Moladora", quantity: 2, brand: "Makita" },
-        { name: "Pala Hancha", quantity: 4, brand: "Generico" },
-        { name: "Balde", quantity: 5, brand: "Generico" },
-      ]
-    },
-    {
-      name: "Galpon",
-      tools: [
-        { name: "Moladora", quantity: 2, brand: "Makita" },
-        { name: "Pala Hancha", quantity: 4, brand: "Generico" },
-        { name: "Balde", quantity: 5, brand: "Generico" },
-      ]
-    },
-  ];
-  
-
-export default function WorksRoute() {
-    const [works, setWorks] = useState(initialWorks);
     const [showForm, setShowForm] = useState(false);
-    const [newWorkName, setNewWorkName] = useState("");
+    const [searchTool, setSearchTool] = useState('')
+    const {getWorkByNameTool} = useStore()
+    const [workWithTool, setWorkWithTool] = useState([])
 
-    const handleAddWork = (e) => {
-        e.preventDefault();
-        if (newWorkName.trim() === "") return;
+    const handleShowForm = (is_Show)=>{
+        setShowForm(is_Show);
+    }
 
-        const newWork = {
-        name: newWorkName,
-        tools: []
-        };
+    const handleChangeSearchTool = (e)=>{
+        const {value} = e.target;
+        setSearchTool(value)
+    }
 
-        setWorks([...works, newWork]);
-        setNewWorkName("");
-        setShowForm(false);
-    };
+    useEffect(()=>{
+        setWorkWithTool(getWorkByNameTool(searchTool));
+        
+        if (searchTool.trim() === '') {
+            setWorkWithTool([]);
+        }
+
+    },[getWorkByNameTool, searchTool])
+
+    return (
+        <section className="sectionWorks">
+            <input type="text" placeholder="Buscar Herramienta" onChange={handleChangeSearchTool} defaultValue={searchTool} className="input-search"/>
 
 
-  return (
-    <section className="sectionWorks">
-        <button onClick={() => setShowForm(!showForm)} className="add-work-button"
-        >
-            {showForm ? "Cancelar" : "Agregar Obra"}
-        </button>
-
-        {showForm && (
-            <form className="add-work-form" onSubmit={handleAddWork} style={{ marginTop: "10px" }}>
-                <input
-                    type="text"
-                    placeholder="Nombre de la obra"
-                    value={newWorkName}
-                    onChange={(e) => setNewWorkName(e.target.value)}
-                />
-                <button type="submit">Guardar</button>
-            </form>
-        )}
-        <ul>
-            {
-                works.map((work)=>(<WorkElement work={work}/>))
-            }
-        </ul>
-    </section>
+            {showForm && (
+                <FormAddWork showForm={handleShowForm}/>
+            )}
+            <button onClick={() => setShowForm(!showForm)} className="add-work-button"
+            >
+                {showForm ? "Cancelar" : "Agregar Obra"}
+            </button>
+            <ul className="ul-listWorks">
+                {
+                    workWithTool.length > 0 ? workWithTool.map((work)=>(<WorkElement key={work.id} work={work}/>)) :
+                    worksList.length > 0 
+                    ? worksList.map((work)=>(<WorkElement key={work.id} work={work}/>)) 
+                    : <LoaderMain/>
+                }
+            </ul>
+        </section>
   );
 }

@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: scroll;
     /*  */
     
 }
@@ -14,7 +15,7 @@
 .tools-subtitleInfo{
     width: 100%;
     display: grid;
-    grid-template-columns: 40px 1fr 1fr 1fr;
+    grid-template-columns: 40px 130px 120px 120px 80px 120px;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
@@ -34,7 +35,7 @@
 
 .sectionTools ul li{
     display: grid;
-    grid-template-columns: 40px 1fr 1fr 1fr;
+    grid-template-columns: 40px 130px 120px 120px 80px 120px;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
@@ -48,17 +49,38 @@
     border-right: .4px solid var(--colorBorder);
 }
 
-.span-quantity { grid-area: 1 / 1 / 2 / 2; ; }
-.span-nameTools { grid-area: 1 / 2 / 2 / 3; ; }
-.span-brand { grid-area: 1 / 3 / 2 / 4; }
-.span-ubic { grid-area: 1 / 4 / 2 / 5; }
+.span-quantity { grid-area: 1 / 1 / 2 / 2;}
+.span-state { grid-area: 1 / 2 / 2 / 3;}
+.span-nameTools { grid-area: 1 / 3 / 2 / 4; }
+.span-brand { grid-area: 1 / 4 / 2 / 5; }
+.span-measure { grid-area: 1 / 5 / 2 / 6; }
+.span-observation { grid-area: 1 / 6 / 2 / 7; }
 
-.p-quantity { grid-area: 1/ 1 / 2 / 2; }
-.p-nameTools { grid-area: 1 / 2 / 2 / 3; }
-.p-brand { grid-area: 1 / 3 / 2 / 4; }
-.p-ubic { grid-area: 1 / 4 / 2 / 5; }
+.p-quantity { grid-area: 1/ 1 / 2 / 2;}
+.p-state { grid-area: 1/ 2 / 2 / 3;}
+.p-nameTools { grid-area: 1 / 3 / 2 / 4; }
+.p-brand { grid-area: 1 / 4 / 2 / 5; }
+.p-measure { grid-area: 1 / 5 / 2 / 6; }
+.p-observation { grid-area: 1 / 6 / 2 / 7; }
 
 /* -------------------------------- */
+
+.tool-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1rem;
+    justify-content: center;
+    padding: 20px;
+    background-color: #33333321;
+    border-radius: 6px;
+}
+.tool-form select{
+    border: #ccc 1px solid;
+    border-radius: 4px;
+    padding: 3px 5px;
+}
+
 .add-tool-btn {
     display: block;
     margin: 0 auto 1rem auto;
@@ -74,15 +96,6 @@
 
 .add-tool-btn:hover {
     background-color: #333;
-}
-
-.tool-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 1rem;
-    justify-content: center;
-    padding: 20px;
 }
 
 .tool-form input {
