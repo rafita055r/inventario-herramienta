@@ -1,0 +1,29 @@
+
+.toolInWork{
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr 1fr 1fr min-content;
+    border-bottom: 1px solid  #4e4e4e31;
+    align-items: center;
+    gap: 5px;
+
+}
+.moveToolBtn{
+    border: none;
+    background-color: #4c9945;
+    padding: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fefefe;
+    border-radius: 5px;
+}
+.toolnameTools, .tool-medida, .tool-brand, .tool-state {
+    text-align: center;
+    width: 60px;
+}
+.tool-nameTools{
+    width: 120px !important;
+}
+.tool-quantity{
+    border-right: 1px solid #4e4e4e;
+    text-align: center;
+}

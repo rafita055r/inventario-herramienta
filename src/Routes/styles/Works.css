@@ -1,0 +1,80 @@
+.sectionWorks{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-search{
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  padding: 6px 15px;
+  border-radius: 6px;
+  border: 1px solid #5e5e5e71;
+  outline: none;
+}
+.input-search:focus{
+  border: 2px solid #00664d;
+}
+
+.ul-listWorks{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 5px 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* ----------------------------------- */
+.add-work-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background-color: #33333321;
+  border-radius: 6px;
+  margin: 10px 0;
+}
+
+  .add-work-button {
+    padding: 7px 16px;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .add-work-button:hover {
+    background-color: #333;
+  }
+  
+  
+  .add-work-form input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .add-work-form button {
+    padding: 8px 16px;
+    background-color: #008060;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .add-work-form button:hover {
+    background-color: #00664d;
+  }
+  
