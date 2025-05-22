@@ -1,7 +1,9 @@
 :root{
     --colorBorder: rgba(116, 116, 116, 0.26);
 }
-
+.main-tool{
+    margin-top: 80px;
+}
 .sectionTools{
     margin-top: 20px;
     display: flex;
