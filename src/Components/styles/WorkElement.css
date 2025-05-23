@@ -5,11 +5,49 @@
   border-bottom: 1px solid #4242423d;
   width: 100%;
 }
+.li_Work h3{
+  padding-left: 10px;
+  border-radius: 5px 5px 0 0;
+  transition: all .2s;
+}
+
+.listToolOpen{
+  background-color: #dfdfdf;
+}
+
 .tools-container {
   max-height: 0;
   overflow: hidden;
+  overflow-x: visible;
   overflow-y: auto;
   transition: max-height 0.4s ease;
+}
+
+.contain_btnDel_btnUpd{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  justify-items: center;
+  padding: 20px 0;
+  background-color: #dfdfdf;
+}
+.contain_btnDel_btnUpd button{
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  width: 160px;
+}
+
+.btn_editWork{
+  background-color: #217a9a;
+}
+
+.btn_delWork{
+  background-color: #9a2121;
 }
   
 .tools-container.open {
