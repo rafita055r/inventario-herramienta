@@ -19,22 +19,34 @@ const useStore = create((set, get) => ({
     const tools = get().herramientas
     return tools.find(tool=> tool.id === idTool)
   },
-  
+  // Devuelve una lista de las Obras donde está esa herramienta pero solo con la herramienta buscada
   getWorkByNameTool: (nameTool)=>{
     const works = get().obras
+    console.log(works);
     
     const toolsInWork = works.map((work)=>{
       let isFind = false
+      const listTool = work.herramientas_enObra
+      const listToolFilter = []
       
-      for(const tool of work.herramientas_enObra){        
+      for(let i=0; i < listTool.length; i++){
         
-        isFind = tool.nombre.trim().toLowerCase().includes(nameTool.toLowerCase())
+        isFind = listTool[i].nombre.trim().toLowerCase().includes(nameTool.toLowerCase())
 
         if(isFind) {
-          return work
-        }
+          listToolFilter.push(listTool[i])
+        } 
       };
+
+      if(listToolFilter.length > 0){
+        return {
+          ...work,
+        herramientas_enObra: listToolFilter
+        }
+
+      }
       return undefined
+
     })
     
     return toolsInWork.filter((elem)=> elem !== undefined)
