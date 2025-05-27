@@ -12,7 +12,7 @@ export default function ToolsRoute({toolsList}){
     }
 
     return(
-        <main>
+        <main className='main-tool'>
 
             {showForm && (
                 <FormAddTool showForm={handleShowForm}/>

@@ -4,15 +4,17 @@ import WorkElement from "../Components/WorkElement";
 import { FormAddWork } from "../Components/FormAddWork";
 import useStore from "../services/useStore";
 import LoaderMain from "../Components/LoaderMain";
+import ModalEditWork from "../Components/ModalEditWork";
 
 export default function WorksRoute({worksList}) {
-
-    
-
     const [showForm, setShowForm] = useState(false);
     const [searchTool, setSearchTool] = useState('')
     const {getWorkByNameTool} = useStore()
     const [workWithTool, setWorkWithTool] = useState([])
+    const [idWorkToEdit, setIdWorkToEdit] = useState(null)
+    const [showEditWork, setShowEditWork] =useState(false)
+
+    const clickSetIdWorkToEdit = (id) => {setIdWorkToEdit(id); setShowEditWork(!showEditWork)}
 
     const handleShowForm = (is_Show)=>{
         setShowForm(is_Show);
@@ -46,12 +48,15 @@ export default function WorksRoute({worksList}) {
             </button>
             <ul className="ul-listWorks">
                 {
-                    workWithTool.length > 0 ? workWithTool.map((work)=>(<WorkElement key={work.id} work={work}/>)) :
+                    workWithTool.length > 0 ? workWithTool.map((work)=>(<WorkElement setIdToEditWork={clickSetIdWorkToEdit} key={work.id} work={work}/>)) :
                     worksList.length > 0 
                     ? worksList.map((work)=>(<WorkElement key={work.id} work={work}/>)) 
                     : <LoaderMain/>
                 }
             </ul>
+            {
+                showEditWork && <ModalEditWork id_work={idWorkToEdit}/>
+            }
         </section>
   );
 }

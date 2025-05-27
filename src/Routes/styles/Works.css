@@ -1,9 +1,10 @@
 .sectionWorks{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 60px;
 }
 
 .input-search{
