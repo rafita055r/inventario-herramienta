@@ -33,8 +33,12 @@ export default function FormAddTool({showForm}){
 
     const submitNewTool = async (e)=>{
         e.preventDefault()
-
-        if(formData.estado === '') return setMensaje('Debe registrar el estado de la herramienta');
+        e.target.disabled = true
+        
+        if(formData.estado === ''){
+          e.target.disabled = false
+          return setMensaje('Debe registrar el estado de la herramienta');
+        } 
 
         const toolFormated = {
             ...formData,
@@ -69,7 +73,7 @@ export default function FormAddTool({showForm}){
         
     }
     return (
-        <form className="tool-form" onSubmit={submitNewTool} onChange={handleFormData}>
+        <form className="tool-form" onChange={handleFormData}>
 
             <input type="text" className="input-name" placeholder="Nombre" name='nombre' defaultValue={formData.nombre} required />
 
@@ -100,7 +104,7 @@ export default function FormAddTool({showForm}){
             
             <input type="text" className="input-observacion" name='observacion' defaultValue={formData.observacion} placeholder='observaciones'/>
 
-            <button type="submit" name='asdfs' className="submit-btn">Guardar</button>
+            <button type="submit" name='asdfs' onClick={submitNewTool} className="submit-btn">Guardar</button>
             
             {mensaje && <p style={{color: 'red', fontSize: '16px'}}>{mensaje}</p>}
         </form>
