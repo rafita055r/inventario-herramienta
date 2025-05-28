@@ -4,12 +4,17 @@ import ItemToolInWork from './ItemToolInWork';
 import { useState } from "react";
 
 
-export default function WorkElement({work}){
+export default function WorkElement({work, setWorkData}){
   const {getHerramienta} = useStore()
   const [isOpen, setIsOpen] = useState(false);
   
-  const openToolList = (e)=>{
+  const openToolList = ()=>{
     setIsOpen(!isOpen)
+  }
+  const dataToEdit = {
+    id: work.id,
+    nombre: work.nombre,
+    direcccion: work.direcccion
   }
   return(
     <li className='li_Work'>
@@ -18,7 +23,7 @@ export default function WorkElement({work}){
       </h3>
       <div className={`tools-container ${isOpen ? "open" : ""}`}>
         <div className='contain_btnDel_btnUpd'> 
-          <button className='btn_editWork'>Editar</button>
+          <button className='btn_editWork' onClick={()=>setWorkData({...dataToEdit})}>Editar</button>
           <button className='btn_delWork'>Eliminar</button>
         </div>
         <ul className="listTools">

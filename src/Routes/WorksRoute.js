@@ -11,10 +11,12 @@ export default function WorksRoute({worksList}) {
     const [searchTool, setSearchTool] = useState('')
     const {getWorkByNameTool} = useStore()
     const [workWithTool, setWorkWithTool] = useState([])
-    const [idWorkToEdit, setIdWorkToEdit] = useState(null)
+    const [dataWorkToEdit, setdataWorkToEdit] = useState({})
     const [showEditWork, setShowEditWork] =useState(false)
 
-    const clickSetIdWorkToEdit = (id) => {setIdWorkToEdit(id); setShowEditWork(!showEditWork)}
+    const clickSetIdWorkToEdit = (work) => {setdataWorkToEdit(work); setShowEditWork(!showEditWork)}
+
+    const openModalToEdit = ()=> setShowEditWork(!showEditWork)
 
     const handleShowForm = (is_Show)=>{
         setShowForm(is_Show);
@@ -48,14 +50,14 @@ export default function WorksRoute({worksList}) {
             </button>
             <ul className="ul-listWorks">
                 {
-                    workWithTool.length > 0 ? workWithTool.map((work)=>(<WorkElement setIdToEditWork={clickSetIdWorkToEdit} key={work.id} work={work}/>)) :
+                    workWithTool.length > 0 ? workWithTool.map((work)=>(<WorkElement setWorkData={clickSetIdWorkToEdit} key={work.id} work={work}/>)) :
                     worksList.length > 0 
-                    ? worksList.map((work)=>(<WorkElement key={work.id} work={work}/>)) 
+                    ? worksList.map((work)=>(<WorkElement setWorkData={clickSetIdWorkToEdit} key={work.id} work={work}/>)) 
                     : <LoaderMain/>
                 }
             </ul>
             {
-                showEditWork && <ModalEditWork id_work={idWorkToEdit}/>
+                showEditWork && <ModalEditWork dataWork={dataWorkToEdit} closeModal={openModalToEdit}/>
             }
         </section>
   );

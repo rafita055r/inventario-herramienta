@@ -1,0 +1,56 @@
+.background_modalEdtiWork{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2626267e;
+}
+
+.contain_form_editWork{
+    position: relative;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 auto;
+    width: 60%;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background-color: #fefefe;
+    font-size: 1.25rem;
+}
+
+.form_editWork {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_editWork input{
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #676767;
+    border-radius: 5px;
+}
+
+.contain_form_editWork button{
+    font-size: 1.1rem;
+    padding: 4px 0;
+    background-color: #b33636;
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid #676767;
+    border-radius: 5px;
+}
+
+.form_editWork button {
+    font-size: 1.1rem;
+    padding: 4px 0;
+    background-color: #4c9945;
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid #676767;
+    border-radius: 5px;
+    margin-top: 10px;
+}
