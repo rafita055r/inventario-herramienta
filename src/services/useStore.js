@@ -7,7 +7,21 @@ const useStore = create((set, get) => ({
   history: [],
   
   setHerramientas: (data) => set({ herramientas: data }),
-  setObras: (data) => set({ obras: data }),
+  setObras: (listWork) => set({ obras: listWork }),
+  updateWork: (data) => {
+    const obras = get().obras
+    const indexOfWork = obras.findIndex(work=> work.id === data.id)
+    
+    obras[indexOfWork] = {
+      ...obras[indexOfWork],
+      id: data.id,
+      nombre: data.nombre,
+      direccion: data.direccion
+    }
+    
+    set({obras})
+    
+  },
   agregarHerramienta: (nuevaHerramienta)=> set((state)=> ({
     herramientas: [...state.herramientas, nuevaHerramienta]
   })),
@@ -22,7 +36,6 @@ const useStore = create((set, get) => ({
   // Devuelve una lista de las Obras donde está esa herramienta pero solo con la herramienta buscada
   getWorkByNameTool: (nameTool)=>{
     const works = get().obras
-    console.log(works);
     
     const toolsInWork = works.map((work)=>{
       let isFind = false
