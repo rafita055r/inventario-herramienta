@@ -12,7 +12,8 @@ export default function ModalConfirmDeleteWork({work_name, work_id, closeModal})
 
     const handleClick = async(e)=>{
         e.preventDefault()
-
+        console.log(confirmName, work_name);
+        
         if(confirmName === work_name){
             
             const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/delete-work`,{
