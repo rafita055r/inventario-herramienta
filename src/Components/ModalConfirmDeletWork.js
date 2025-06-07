@@ -6,34 +6,35 @@ export default function ModalConfirmDeleteWork({work_name, work_id, closeModal})
     const [msg, setMsg] = useState("")
 
     const handleChange = (e)=>{
+        setMsg("")
         const {value} = e.target
         setConfirmName(value)
     }
 
     const handleClick = async(e)=>{
         e.preventDefault()
-        console.log(typeof(confirmName), typeof(work_name));
+        console.log(confirmName === work_name);
         
         if(confirmName === work_name){
             
-            // const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/delete-work`,{
-            //     method: "DELETE",
-            //     headers: {
-            //     "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify({id: work_id})
-            // })
+            const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/delete-work`,{
+                method: "DELETE",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify({id: work_id})
+            })
         
-            // if(!res.ok) {
-            //     setMsg("Error de servidor")  
-            //     return console.log(res)
-            // };
+            if(!res.ok) {
+                setMsg("Error de servidor")  
+                return console.log(res)
+            };
         
-            // const data = await res.json()
-            // console.log(data);
+            const data = await res.json()
+            console.log(data);
 
-            // window.location.reload()
-            // return closeModal()
+            window.location.reload()
+            return closeModal()
         }else{
             setMsg("No hay coincidencia")
             return

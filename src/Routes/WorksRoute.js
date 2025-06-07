@@ -56,7 +56,7 @@ export default function WorksRoute({worksList}) {
                 {
                     workWithTool.length > 0 ? workWithTool.map((work)=>(<WorkElement setWorkData={setWorkIdToEdit} key={work.id} work={work}/>)) :
                     worksList.length > 0 
-                    ? worksList.map((work)=>(<WorkElement setWorkData={setWorkIdToDelete} key={work.id} work={work}/>)) 
+                    ? worksList.map((work)=>(<WorkElement setWorkDataToDel={setWorkIdToDelete} setWorkDataToEdit={setWorkIdToEdit} key={work.id} work={work}/>)) 
                     : <LoaderMain/>
                 }
             </ul>
