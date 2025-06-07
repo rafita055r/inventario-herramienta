@@ -3,7 +3,7 @@ import useStore from '../services/useStore';
 import ItemToolInWork from './ItemToolInWork';
 import { useState } from "react";
 
-export default function WorkElement({work, setWorkData}){
+export default function WorkElement({work, setWorkDataToDel, setWorkDataToEdit}){
   const {getHerramienta} = useStore()
   const [isOpen, setIsOpen] = useState(false);
   
@@ -23,8 +23,8 @@ export default function WorkElement({work, setWorkData}){
       </h3>
       <div className={`tools-container ${isOpen ? "open" : ""}`}>
         <div className='contain_btnDel_btnUpd'> 
-          <button className='btn_editWork' onClick={()=>setWorkData({...data_work})}>Editar</button>
-          <button className='btn_delWork' onClick={()=>setWorkData({...data_work})}>Eliminar</button>
+          <button className='btn_editWork' onClick={()=>setWorkDataToEdit({...data_work})}>Editar</button>
+          <button className='btn_delWork' onClick={()=>setWorkDataToDel({...data_work})}>Eliminar</button>
         </div>
         <ul className="listTools">
           {
