@@ -3,7 +3,6 @@ import useStore from '../services/useStore';
 import ItemToolInWork from './ItemToolInWork';
 import { useState } from "react";
 
-
 export default function WorkElement({work, setWorkData}){
   const {getHerramienta} = useStore()
   const [isOpen, setIsOpen] = useState(false);
@@ -11,25 +10,10 @@ export default function WorkElement({work, setWorkData}){
   const openToolList = ()=>{
     setIsOpen(!isOpen)
   }
-  const dataToEdit = {
+  const data_work = {
     id: work.id,
     nombre: work.nombre,
     direcccion: work.direcccion
-  }
-
-  const onClickDeleteWork = async (e)=>{
-    const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/delete-work`,{
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({id: work.id})
-    })
-
-    if(!res.ok) return console.log(res);
-
-    const data = await res.json()
-    return console.log(data);
   }
 
   return(
@@ -39,8 +23,8 @@ export default function WorkElement({work, setWorkData}){
       </h3>
       <div className={`tools-container ${isOpen ? "open" : ""}`}>
         <div className='contain_btnDel_btnUpd'> 
-          <button className='btn_editWork' onClick={()=>setWorkData({...dataToEdit})}>Editar</button>
-          <button className='btn_delWork' onClick={onClickDeleteWork}>Eliminar</button>
+          <button className='btn_editWork' onClick={()=>setWorkData({...data_work})}>Editar</button>
+          <button className='btn_delWork' onClick={()=>setWorkData({...data_work})}>Eliminar</button>
         </div>
         <ul className="listTools">
           {
