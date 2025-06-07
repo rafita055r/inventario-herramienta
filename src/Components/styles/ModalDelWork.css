@@ -1,0 +1,73 @@
+.background_modaldelWork{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2626267e;
+}
+
+.contain_form_delWork{
+    position: relative;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 auto;
+    width: 60%;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background-color: #fefefe;
+    font-size: 1.25rem;
+}
+
+.form_delWork {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.p-delConfirm{
+    font-size: 1.13rem;
+}
+
+.form_delWork label{
+    font-weight: bold;
+    font-size: 1.14rem;
+}
+
+#input-confirmDelete{
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #676767;
+    border-radius: 5px;
+}
+
+.contain-btnModalDelet{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.btns-del-modal{
+    background: none;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.btn-cancel{
+    background-color: #3752a3;
+    border: solid 2px #3739a1;
+    color: #fff;
+}
+
+.btn-del{
+    background-color: #e35752;
+    border: solid 2px #b34646;
+    color: #fff;
+}
