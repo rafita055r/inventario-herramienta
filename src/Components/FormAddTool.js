@@ -27,7 +27,7 @@ export default function FormAddTool({showForm}){
         setFormData(data=>{
             return {
                 ...data,
-                [name]: value
+                [name]: name === "nombre" ? value.trim() : value
             }
         })
         return
