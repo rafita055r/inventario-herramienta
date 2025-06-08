@@ -19,7 +19,7 @@ export function FormAddWork({showForm}){
         setWork(work=>{
             return{
                 ...work,
-                [name]: value
+                [name]: value.trim()
             }
         })
     };

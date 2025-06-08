@@ -1,6 +1,7 @@
 import '../Routes/styles/Tools.css'
 import { useState } from 'react';
 import useStore from '../services/useStore';
+import LoaderToData from './LoaderToData';
 const apiBaseUrl = process.env.REACT_APP_API_BASE_URL
 
 export default function FormAddTool({showForm}){
@@ -16,6 +17,7 @@ export default function FormAddTool({showForm}){
     const [mensaje, setMensaje] = useState('');
     const addToolInStore = useStore((state) => state.agregarHerramienta);
     const {obras, cargarDatosDesdeAPI} = useStore();
+    const [loaded, setLoaded] = useState(false)
 
     const handleFormData = (e) => {
         e.preventDefault();
@@ -39,7 +41,7 @@ export default function FormAddTool({showForm}){
           e.target.disabled = false
           return setMensaje('Debe registrar el estado de la herramienta');
         } 
-
+        setLoaded(true)
         const toolFormated = {
             ...formData,
             cantidad_total: Number(parseInt(formData.cantidad_total)),
@@ -54,7 +56,6 @@ export default function FormAddTool({showForm}){
               },
               body: JSON.stringify(toolFormated),
             });
-            console.log(res);
             
             if (res.ok) {
               const {message, data} = await res.json(); // respuesta con la herramienta creada
@@ -64,6 +65,7 @@ export default function FormAddTool({showForm}){
               showForm(false);
               await cargarDatosDesdeAPI()
             } else {
+              setLoaded(false)
               setMensaje('Error al agregar herramienta');
             }
           } catch (err) {
@@ -103,8 +105,11 @@ export default function FormAddTool({showForm}){
             <p style={{color:'#2a44a8', textAlign: 'center', fontSize: "14px"}}>La ubicacion de la herramienta por defecto es Galpon</p>
             
             <input type="text" className="input-observacion" name='observacion' defaultValue={formData.observacion} placeholder='observaciones'/>
-
-            <button type="submit" name='asdfs' onClick={submitNewTool} className="submit-btn">Guardar</button>
+            {
+              !loaded &&
+              <button type="submit" name='asdfs' onClick={submitNewTool} className="submit-btn">Guardar</button>
+            }
+            {loaded && <LoaderToData/>}
             
             {mensaje && <p style={{color: 'red', fontSize: '16px'}}>{mensaje}</p>}
         </form>

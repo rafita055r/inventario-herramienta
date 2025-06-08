@@ -83,7 +83,9 @@ export default function MoveTool({nameTool, fromWork, quantityInWork, medida, cl
                 {
                     loaded && <LoaderToData/>
                 }
-                <button className='btnMoveTool_modal'>Mover herramienta</button>
+                {
+                    !loaded && <button className='btnMoveTool_modal'>Mover herramienta</button>
+                }
             </form>
         </div>
     )
