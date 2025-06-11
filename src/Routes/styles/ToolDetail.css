@@ -1,0 +1,129 @@
+.main-detail-tool {
+    margin-top: 90px;
+    padding-bottom: 20px;
+}
+
+.section-detail-tool {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    gap: 20px;
+}
+
+.img-detail-tool {
+    width: 350px;
+}
+
+.div-btnsDelEdit-detail-tool {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.div-btnsDelEdit-detail-tool button {
+    width: 120px;
+    font-size: 1.2rem;
+    padding: 5px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-edit-tool {
+    background-color: #4956ee;
+    color: #fefefe;
+}
+.btn-del-tool {
+    background-color: #d75252;
+    color: #fefefe;
+}
+
+.div-nameAndObserv-tool h2{
+    font-size: 1.9rem;
+}
+.div-nameAndObserv-tool p{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #313131;
+}
+
+.div-allQuantity-tool {
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+}
+
+.div-table-ubication-quantity { 
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.div-header-UbicQuant {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 120px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    background-color: #e9e9e9;
+    border-bottom: 1px solid #313131;
+    padding: 5px 8px;
+}
+
+.span-ubicationDetail {
+    grid-area: 1/1/2/2;
+    width: 170px;
+}
+.span-quantityDetail {
+    grid-area: 1/2/2/3;
+}
+.span-voidSpace {
+    grid-area: 1/3/2/4;
+}
+
+.list-UbicQuant-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 3px;
+}
+
+.list-UbicQuant-detail li {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 120px;
+    justify-self: left;
+    align-items: center;
+    padding: 5px 8px;
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #313131;
+}
+
+.span-nameWork-detailTool {
+    grid-area: 1/1/2/2;
+    width: 170px;
+}
+.span-quantity-detailTool {
+    grid-area: 1/2/2/3;
+    text-align: center;
+}
+.span-move-detailTool {
+    grid-area: 1/3/2/4;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.span-move-detailTool button {
+    width: 80px;
+    max-height: min-content;
+    font-size: 1.1rem;
+    border: none;
+    background-color: #4c9945;
+    padding: 5px;
+    font-weight: 600;
+    color: #fefefe;
+    border-radius: 5px;
+}
