@@ -12,13 +12,14 @@ const routeTitles = {
 export default  function NavBar(){
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
+    const state = location?.state    
   
     const toggleDrawer = () => {
       setIsOpen(!isOpen);
     };
   
     // Obtiene el título de la ruta actual
-    const pageTitle = routeTitles[location.pathname] || 'Página';
+    const pageTitle = routeTitles[location.pathname] ? routeTitles[location.pathname] : state?.page === "tool-detail" ? "Herramienta" : 'Página no encontrada';
     return (
         <>
             <header className="header">

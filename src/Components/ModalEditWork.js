@@ -50,8 +50,8 @@ export default function ModalEditWork({dataWork, closeModal}){
         return setMsg('No se puede enviar campos vacios')
     }
 
-    return <div className="background_modalEdtiWork">
-        <div className="contain_form_editWork">
+    return <div className="background_modalEdtiWork" onClick={closeModal}>
+        <div className="contain_form_editWork" onClick={(e) => e.stopPropagation()}>
             <form className='form_editWork' onChange={handleChange}>
                 <label htmlFor="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" defaultValue={data.nombre}/>

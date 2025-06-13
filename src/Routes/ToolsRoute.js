@@ -2,10 +2,15 @@ import './styles/Tools.css'
 import { useState } from 'react';
 import FormAddTool from '../Components/FormAddTool';
 import LoaderMain from "../Components/LoaderMain";
+import { useNavigate } from 'react-router';
 
 export default function ToolsRoute({toolsList}){
-    
+    const navigate = useNavigate()
     const [showForm, setShowForm] = useState(false);
+
+    const toolDetailRedirectPage = (tool)=>{
+        navigate(`/herramientas/${tool.id}`, {state: {tool, page: "tool-detail"}})
+    }
 
     const handleShowForm = (is_Show)=>{
         setShowForm(is_Show);
@@ -33,7 +38,7 @@ export default function ToolsRoute({toolsList}){
                 <ul className='ul_tools'>
                     {
                         toolsList.length > 0 ? toolsList.map((tool)=> (
-                            <li key={tool.id}>
+                            <li key={tool.id} onClick={()=>toolDetailRedirectPage(tool)}>
                                 <p className="p-quantity">{tool.cantidad_total}</p>
                                 <p className="p-state">{tool.estado}</p>
                                 <p className="p-nameTools">{tool.nombre}</p>
