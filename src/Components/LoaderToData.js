@@ -1,17 +1,17 @@
 import {BarLoader} from "react-spinners"
 
-export default function LoaderToData(){
+export default function LoaderToData({color, textOfCharging, width}){
     return <div style={{
-        padding: '10px',
+        padding: '0',
         display: 'flex',
         flexDirection: "column",
         alignItems: 'center'
     }}>
         <BarLoader
-        color="#1d5429"
-        width={150}
+        color= {color ? color : "#1d5429"}
+        width={width ? width : 150}
         speedMultiplier={0.4}
         />
-        <p style={{color: '#1d5429', fontSize: '16px'}}>Cargando...</p>
+        <p style={{color: color ? color : "#1d5429", fontSize: '16px'}}>{textOfCharging ? textOfCharging : "Cargando..."}</p>
     </div>
 }
