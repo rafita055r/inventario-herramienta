@@ -13,7 +13,7 @@ export default function ToolDetail(){
     const navigate = useNavigate()
     const {cargarDatosDesdeAPI} = useStore();
     const [delLoader, setDelLoader] = useState(false)
-    const [editLoader, setEditLoader] = useState(false)
+    // const [editLoader, setEditLoader] = useState(false)
     
     const onClickDelete = async ()=>{
         setDelLoader(true)

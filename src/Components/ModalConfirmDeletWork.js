@@ -40,8 +40,8 @@ export default function ModalConfirmDeleteWork({work_name, work_id, closeModal})
     }
 
     return (
-        <div className="background_modaldelWork">
-            <div className="contain_form_delWork">
+        <div className="background_modaldelWork" onClick={closeModal}>
+            <div className="contain_form_delWork" onClick={(e) => e.stopPropagation()}>
                 <p className="p-delConfirm">Debes confirmar la eliminación</p>
                 <form onChange={handleChange} className="form_delWork">
                     <label htmlFor="input-confirmDelete">Escribe exactamente <span style={{color: 'red'}}>{work_name}</span></label>
