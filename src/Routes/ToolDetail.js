@@ -3,6 +3,7 @@ import "./styles/ToolDetail.css"
 import useStore from "../services/useStore";
 import { useState } from "react";
 import LoaderToData from "../Components/LoaderToData";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 const urlImgGeneric = "https://static.vecteezy.com/system/resources/previews/009/098/401/large_2x/tool-icon-collection-illustration-instrument-symbol-wrench-hammer-handsaw-screwdriver-adjustment-wrench-paint-brush-vector.jpg"
 
@@ -14,6 +15,7 @@ export default function ToolDetail(){
     const {cargarDatosDesdeAPI} = useStore();
     const [delLoader, setDelLoader] = useState(false)
     // const [editLoader, setEditLoader] = useState(false)
+    const [isEditing, setIsEditing] = useState(false)
     
     const onClickDelete = async ()=>{
         setDelLoader(true)
@@ -35,19 +37,30 @@ export default function ToolDetail(){
     return (
         <main className="main-detail-tool">
             <section className="section-detail-tool">
-                <img src={tool?.img ? tool.img : urlImgGeneric} alt="" className="img-detail-tool"/>
-                <div className="div-nameAndObserv-tool">
-                <div className="div-btnsDelEdit-detail-tool">
-                    <button className="btn-edit-tool">Editar</button>
-                    <button className="btn-del-tool" onClick={onClickDelete}>{delLoader ? <LoaderToData width={60} color={"#fefefe"} textOfCharging={"eliminando"}/> : "Eliminar"}</button>
+                <div className="containImgTool_andButtonEdit">
+                    <img src={tool?.img ? tool.img : urlImgGeneric} alt="" className="img-detail-tool"/>
+                    {isEditing && <button>✏️</button>}
                 </div>
-                    <h2>{tool.nombre}</h2>
-                    <p>{tool.observacion}</p>
+                <div className="div-nameAndObserv-tool">
+                    {isEditing ? 
+                        <div className="div-btnsDelEdit-detail-tool">
+                            <button className="btn-saveEdit-tool" onClick={()=> setIsEditing(true)}>Guardar</button>
+                            <button className="btn-del-tool" onClick={()=>setIsEditing(false)}>Cancelar</button>
+                        </div> 
+                    :
+                        <div className="div-btnsDelEdit-detail-tool">
+                            <button className="btn-edit-tool" onClick={()=> setIsEditing(!isEditing)}>Editar</button>
+                            <button className="btn-del-tool" onClick={onClickDelete}>{delLoader ? <LoaderToData width={60} color={"#fefefe"} textOfCharging={"eliminando"}/> : "Eliminar"}</button>
+                        </div>
+                    }
+                    {isEditing ? <input type="text" placeholder={tool.nombre}/> : <h2>{tool.nombre}</h2>}
+                    {isEditing ? <textarea defaultValue={tool.observacion}/> : <p>{tool.observacion}</p>}
                 </div>
 
 
                 <div className="div-allQuantity-tool">
-                    <h4>Cantidad total</h4><span style={{fontWeight: "600", color: "#16182d"}}>{tool.cantidad_total}</span>
+                    <h4>Cantidad total</h4>
+                    {isEditing ? <input type="number" placeholder={tool.cantidad_total}/> : <span style={{fontWeight: "600", color: "#16182d"}}>{tool.cantidad_total}</span>}
                 </div>
                 <div className="div-table-ubication-quantity">
                     <div className="div-header-UbicQuant">
@@ -66,12 +79,9 @@ export default function ToolDetail(){
                                     </span>
                                 </li>
                             ))
-                        }
-                        
-                        
+                        }                        
                     </ul>
                 </div>
-
             </section>
         </main>
     )

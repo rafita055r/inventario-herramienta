@@ -9,6 +9,23 @@
     padding: 0 15px;
     gap: 20px;
 }
+.section-detail-tool input{
+    padding: 3px 5px;
+    border: none;
+    border-bottom: 1px solid #9f9f9f;
+    background: linear-gradient(to top, #dfdfdf, #fefefe);
+}
+
+.containImgTool_andButtonEdit{
+    position: relative;
+    width: min-content;
+}
+
+.containImgTool_andButtonEdit button{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 
 .img-detail-tool {
     width: 350px;
@@ -33,11 +50,20 @@
     background-color: #4956ee;
     color: #fefefe;
 }
+.btn-saveEdit-tool {
+    background-color: #0a823e;
+    color: #fefefe;
+}
 .btn-del-tool {
     background-color: #d75252;
     color: #fefefe;
 }
 
+.div-nameAndObserv-tool{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .div-nameAndObserv-tool h2{
     font-size: 1.9rem;
 }
@@ -47,10 +73,26 @@
     color: #313131;
 }
 
+.div-nameAndObserv-tool input{
+    font-size: 1.9rem;
+}
+
+.div-nameAndObserv-tool textarea {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #313131;
+    padding: 3px 5px;
+}
+
 .div-allQuantity-tool {
     display: flex;
     gap: 10px;
     font-size: 1.3rem;
+}
+.div-allQuantity-tool input{
+    width: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .div-table-ubication-quantity { 
