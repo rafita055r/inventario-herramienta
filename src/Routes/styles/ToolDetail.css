@@ -89,6 +89,24 @@
     gap: 10px;
     font-size: 1.3rem;
 }
+
+.editing{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px 1fr ;
+}
+.editing p{
+    grid-area:3 / 1 / 4 /3;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #b63737;
+}
+.editing .p-editTool-error{
+    grid-area:2 / 1 / 3 /3;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #e50202;
+}
 .div-allQuantity-tool input{
     width: 50px;
     font-size: 1.3rem;
