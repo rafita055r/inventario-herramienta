@@ -90,23 +90,7 @@
     font-size: 1.3rem;
 }
 
-.editing{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 150px 1fr ;
-}
-.editing p{
-    grid-area:3 / 1 / 4 /3;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #b63737;
-}
-.editing .p-editTool-error{
-    grid-area:2 / 1 / 3 /3;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #e50202;
-}
+
 .div-allQuantity-tool input{
     width: 50px;
     font-size: 1.3rem;
@@ -186,4 +170,101 @@
     font-weight: 600;
     color: #fefefe;
     border-radius: 5px;
+}
+
+/* Componente Edicion de herramienta */
+.containEditTool{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.containEditTool .div-nameAndObserv-tool{
+    gap: 20px;
+}
+
+.inputModifyTool{
+    width: 90vw;
+}
+
+.labelSelectState{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.selectModifyState{
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 3px 0;
+    color: #fefefe;
+    outline: none;
+    border-radius: 5px;
+}
+
+.optionGood {
+    background-color: #0a823e;
+}
+.optionBad {
+    background-color: #b63737;
+}
+.optionMaintenance {
+    background-color: #724923;
+}
+.editing{
+    width: 100%;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+}
+.editing p{
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #b63737;
+}
+
+.editing .p-editTool-error{
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #e50202;
+}
+
+.div-containModifyQuant{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.div-containModifyQuant label{
+    font-size: 1rem;
+    color: #fefefe;
+    border-radius: 5px;
+    padding: 2px 0px;
+    width: 70px;
+    text-align: center;
+}
+.labelSubstract{
+    background-color: #d75252;
+    border: #b63737 2px solid;
+}
+.labelAddition{
+    background-color: #4956ee;
+    border: #1b2eff 2px solid;
+}
+
+.div-containModifyQuant input{
+    width: 75px;
+    text-align: center;
+}
+
+.div-nameAndObserv-tool label b{
+    /* font-size: 1,4rem; */
+    color: #313131;
+}
+
+.div-allQuantity-tool .editing div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div-allQuantity-tool .editing h4 {
+    color: #313131;
 }
