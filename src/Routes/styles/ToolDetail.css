@@ -9,6 +9,23 @@
     padding: 0 15px;
     gap: 20px;
 }
+.section-detail-tool input{
+    padding: 3px 5px;
+    border: none;
+    border-bottom: 1px solid #9f9f9f;
+    background: linear-gradient(to top, #dfdfdf, #fefefe);
+}
+
+.containImgTool_andButtonEdit{
+    position: relative;
+    width: min-content;
+}
+
+.containImgTool_andButtonEdit button{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 
 .img-detail-tool {
     width: 350px;
@@ -33,24 +50,56 @@
     background-color: #4956ee;
     color: #fefefe;
 }
+.btn-saveEdit-tool {
+    background-color: #0a823e;
+    color: #fefefe;
+}
 .btn-del-tool {
     background-color: #d75252;
     color: #fefefe;
 }
 
+.div-nameAndObserv-tool{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .div-nameAndObserv-tool h2{
     font-size: 1.9rem;
 }
-.div-nameAndObserv-tool p{
+.p-props{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #313131;
+}
+.p-observation{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #313131;
+}
+
+.div-nameAndObserv-tool input{
+    font-size: 1.9rem;
+}
+
+.div-nameAndObserv-tool textarea {
     font-size: 1.2rem;
     font-weight: 700;
     color: #313131;
+    padding: 3px 5px;
 }
 
 .div-allQuantity-tool {
     display: flex;
     gap: 10px;
     font-size: 1.3rem;
+}
+
+
+.div-allQuantity-tool input{
+    width: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .div-table-ubication-quantity { 
@@ -126,4 +175,101 @@
     font-weight: 600;
     color: #fefefe;
     border-radius: 5px;
+}
+
+/* Componente Edicion de herramienta */
+.containEditTool{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.containEditTool .div-nameAndObserv-tool{
+    gap: 20px;
+}
+
+.inputModifyTool{
+    width: 90vw;
+}
+
+.labelSelectState{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.selectModifyState{
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 3px 0;
+    color: #fefefe;
+    outline: none;
+    border-radius: 5px;
+}
+
+.optionGood {
+    background-color: #0a823e;
+}
+.optionBad {
+    background-color: #b63737;
+}
+.optionMaintenance {
+    background-color: #724923;
+}
+.editing{
+    width: 100%;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+}
+.editing p{
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #b63737;
+}
+
+.editing .p-editTool-error{
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #e50202;
+}
+
+.div-containModifyQuant{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.div-containModifyQuant label{
+    font-size: 1rem;
+    color: #fefefe;
+    border-radius: 5px;
+    padding: 2px 0px;
+    width: 70px;
+    text-align: center;
+}
+.labelSubstract{
+    background-color: #d75252;
+    border: #b63737 2px solid;
+}
+.labelAddition{
+    background-color: #4956ee;
+    border: #1b2eff 2px solid;
+}
+
+.div-containModifyQuant input{
+    width: 75px;
+    text-align: center;
+}
+
+.div-nameAndObserv-tool label b{
+    /* font-size: 1,4rem; */
+    color: #313131;
+}
+
+.div-allQuantity-tool .editing div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div-allQuantity-tool .editing h4 {
+    color: #313131;
 }
