@@ -31,7 +31,8 @@ const useStore = create((set, get) => ({
 
   getHerramienta: (idTool)=>{
     const tools = get().herramientas
-    return tools.find(tool=> tool.id === idTool)
+    const tool = tools.find(tool=> tool.id === idTool)  
+    return tool
   },
   // Devuelve una lista de las Obras donde está esa herramienta pero solo con la herramienta buscada
   getWorkByNameTool: (nameTool)=>{
