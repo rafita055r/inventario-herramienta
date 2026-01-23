@@ -11,7 +11,7 @@ export default function WorksRoute({worksList}) {
     const [showForm, setShowForm] = useState(false);
     const [searchTool, setSearchTool] = useState('')
     const {getWorkByNameTool} = useStore()
-    const [workWithTool, setWorkWithTool] = useState([])
+    const [resultSearchTool, setResultSearchTool] = useState([])
     const [data_work, setDataWork] = useState({})
     const [showEditWork, setShowEditWork] =useState(false)
     const [modalDel, setModalDel] = useState(false)
@@ -26,23 +26,18 @@ export default function WorksRoute({worksList}) {
         setShowForm(is_Show);
     }
 
-    const handleChangeSearchTool = (e)=>{
-        const {value} = e.target;
-        setSearchTool(value)
-    }
-
     useEffect(()=>{
-        setWorkWithTool(getWorkByNameTool(searchTool));
+        setResultSearchTool(getWorkByNameTool(searchTool));
         
         if (searchTool.trim() === '') {
-            setWorkWithTool([]);
+            setResultSearchTool([]);
         }
 
     },[getWorkByNameTool, searchTool])
 
     return (
         <section className="sectionWorks">
-            <input type="text" placeholder="Buscar Herramienta" onChange={handleChangeSearchTool} defaultValue={searchTool} className="input-search"/>
+            <SearchTool searchTool={searchTool} setSearchTool={setSearchTool}/>
 
 
             {showForm && (
@@ -52,11 +47,12 @@ export default function WorksRoute({worksList}) {
             >
                 {showForm ? "Cancelar" : "Agregar Obra"}
             </button>
+
             <ul className="ul-listWorks">
                 {
-                    workWithTool.length > 0 ? workWithTool.map((work)=>(<WorkElement setWorkData={setWorkIdToEdit} key={work.id} work={work}/>)) :
+                    resultSearchTool.length > 0 ? resultSearchTool.map((work)=>(<WorkElement setWorkData={setWorkIdToEdit} key={work.id} dataWork={work}/>)) :
                     worksList.length > 0 
-                    ? worksList.map((work)=>(<WorkElement setWorkDataToDel={setWorkIdToDelete} setWorkDataToEdit={setWorkIdToEdit} key={work.id} work={work}/>)) 
+                    ? worksList.map((work)=>(<WorkElement setWorkDataToDel={setWorkIdToDelete} setWorkDataToEdit={setWorkIdToEdit} key={work.id} dataWork={work}/>)) 
                     : <LoaderMain/>
                 }
             </ul>
@@ -68,4 +64,15 @@ export default function WorksRoute({worksList}) {
             }
         </section>
   );
+}
+
+function SearchTool({searchTool,setSearchTool}){
+
+    const handleChangeSearchTool = (e)=>{
+        const {value} = e.target;
+        setSearchTool(value)
+    }
+    return <>
+        <input type="text" placeholder="Buscar Herramienta" onChange={handleChangeSearchTool} defaultValue={searchTool} className="input-search"/>
+    </>
 }

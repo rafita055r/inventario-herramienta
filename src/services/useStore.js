@@ -67,14 +67,15 @@ const useStore = create((set, get) => ({
   },
 
   cargarDatosDesdeAPI: async () => {
+    
     const herramientasRes = await fetch(`${apiBaseUrl}/herramientas`);
     const obrasRes = await fetch(`${apiBaseUrl}/obras`);
     const historyRes = await fetch(`${apiBaseUrl}/history`)
-
+    
     const herramientas = await herramientasRes.json();
     const obras = await obrasRes.json();
     const history = await historyRes.json();
-
+    
     set({ herramientas, obras, history });
   }
 }));
