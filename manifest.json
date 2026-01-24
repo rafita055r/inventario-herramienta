@@ -1,0 +1,7 @@
+{
+    "name": "Inventario Herramientas",
+    "short_name": "Inventario",
+    "start_url": "/",
+    "display": "standalone",
+    "icons": []
+  }
