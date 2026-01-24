@@ -10,11 +10,6 @@ export default function WorkElement({dataWork, setWorkDataToDel, setWorkDataToEd
   const openToolList = ()=>{
     setIsOpen(!isOpen)
   }
- /*  const data_work = {
-    id: work.id,
-    nombre: work.nombre,
-    direcccion: work.direcccion
-  } */
 
   const {nombre, herramientas_enObra} = dataWork
 
@@ -28,7 +23,7 @@ export default function WorkElement({dataWork, setWorkDataToDel, setWorkDataToEd
           <button className='btn_editWork' onClick={()=>setWorkDataToEdit({...dataWork})}>Editar</button>
           <button className='btn_delWork' onClick={()=>setWorkDataToDel({...dataWork})}>Eliminar</button>
         </div>
-        <ul className="listTools">
+        {<ul className="listTools">
           {
             herramientas_enObra.length > 0 ? herramientas_enObra.map((tool) => {
               const toolFormated = getHerramienta(tool.herramienta_id)
@@ -43,7 +38,7 @@ export default function WorkElement({dataWork, setWorkDataToDel, setWorkDataToEd
                   key={toolFormated.id}/>
             }) : <>no hay herramientas</>
           }
-        </ul>
+        </ul>}
       </div>
     </li>
     )
