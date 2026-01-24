@@ -1,5 +1,5 @@
 import "./styles/Works.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import WorkElement from "../Components/WorkElement";
 import { FormAddWork } from "../Components/FormAddWork";
 import useStore from "../services/useStore";
@@ -8,12 +8,12 @@ import ModalEditWork from "../Components/ModalEditWork";
 import ModalConfirmDeleteWork from "../Components/ModalConfirmDeletWork";
 
 export default function WorksRoute({ worksList }) {
-    const { searchToolsAndWorks } = useStore();
+  const { searchToolsAndWorks } = useStore();
   const [showForm, setShowForm] = useState(false);
   const [searchingData, setSearchingData] = useState({
-    workName: '',
-    toolName: ''
-  })
+    workName: "",
+    toolName: "",
+  });
   const [resultSearching, setResultSearching] = useState([]);
   const [data_work, setDataWork] = useState({});
   const [showEditWork, setShowEditWork] = useState(false);
@@ -35,29 +35,19 @@ export default function WorksRoute({ worksList }) {
 
   const handleSearchWork = (e) => {
     const { value, name } = e.target;
-    console.log(name);
-    
-    setSearchingData(data=>({
+
+    setSearchingData((data) => ({
       ...data,
-      [name]: value
+      [name]: value,
     }));
   };
-  
-  const onClickSearching = async() => {
-    setResultSearching(await searchToolsAndWorks(searchingData.workName, searchingData.toolName))
-  }
-/* 
-  useEffect(() => {
-    if (searchTool.length < 1 && searchWork.length < 1) {
-        setResultSearching([]);
-    }
-      
-  }, [ searchTool, searchWork, ]);
- */
+
+  const onClickSearching = async () =>
+    setResultSearching(
+      await searchToolsAndWorks(searchingData.workName, searchingData.toolName)
+    );
   return (
     <section className="sectionWorks">
-      {/* <SearchTool searchTool={searchTool} setSearchTool={setSearchTool} /> */}
-
       <input
         type="text"
         name="toolName"
@@ -67,18 +57,16 @@ export default function WorksRoute({ worksList }) {
       />
       <input
         type="text"
-        name="toolName"
+        name="workName"
         placeholder="Buscar Obra"
         onChange={handleSearchWork}
         className="input-search"
       />
 
       {showForm && <FormAddWork showForm={handleShowForm} />}
-      {searchingData.toolName.length > 0 || searchingData.workName.length > 0 ? (
-        <button
-          onClick={onClickSearching}
-          className="work-searching-button"
-        >
+      {searchingData.toolName.length > 0 ||
+      searchingData.workName.length > 0 ? (
+        <button onClick={onClickSearching} className="work-searching-button">
           Buscar
         </button>
       ) : null}
@@ -125,22 +113,3 @@ export default function WorksRoute({ worksList }) {
     </section>
   );
 }
-/* 
-function SearchTool({ searchTool, setSearchTool }) {
-  const handleChangeSearchTool = (e) => {
-    const { value } = e.target;
-    setSearchTool(value);
-  };
-  return (
-    <>
-      <input
-        type="text"
-        placeholder="Buscar Herramienta"
-        onChange={handleChangeSearchTool}
-        defaultValue={searchTool}
-        className="input-search"
-      />
-    </>
-  );
-}
- */

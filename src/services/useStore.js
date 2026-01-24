@@ -42,8 +42,7 @@ const useStore = create((set, get) => ({
       const res = await fetch(
         `${apiBaseUrl}/obras?nameWork=${workName}&nameTool=${toolName}`
       );
-      const filteredWorks = await res.json()
-      console.log(filteredWorks);
+      const filteredWorks = await res.json();
 
       return filteredWorks;
     } catch (error) {
@@ -52,7 +51,6 @@ const useStore = create((set, get) => ({
   },
 
   cargarDatosDesdeAPI: async () => {
-    console.log('Ejecutando')
     const herramientasRes = await fetch(`${apiBaseUrl}/herramientas`);
     const obrasRes = await fetch(`${apiBaseUrl}/obras`);
     const historyRes = await fetch(`${apiBaseUrl}/history`);
