@@ -1,5 +1,5 @@
 import "./styles/Works.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import WorkElement from "../Components/WorkElement";
 import { FormAddWork } from "../Components/FormAddWork";
 import useStore from "../services/useStore";
@@ -14,6 +14,8 @@ export default function WorksRoute({ worksList }) {
     workName: "",
     toolName: "",
   });
+  const [loading, setLoading] = useState(false)
+  const [notFoundWork, setNotFoundWork] = useState(false);
   const [resultSearching, setResultSearching] = useState([]);
   const [data_work, setDataWork] = useState({});
   const [showEditWork, setShowEditWork] = useState(false);
@@ -42,10 +44,25 @@ export default function WorksRoute({ worksList }) {
     }));
   };
 
-  const onClickSearching = async () =>
-    setResultSearching(
-      await searchToolsAndWorks(searchingData.workName, searchingData.toolName)
+  const onClickSearching = async () => {
+    setLoading(true)
+    const dataFounded = await searchToolsAndWorks(
+      searchingData.workName,
+      searchingData.toolName
     );
+    !dataFounded.length
+      ? setNotFoundWork(true)
+      : setResultSearching(dataFounded);
+    setLoading(false)
+  };
+
+  useEffect(() => {
+    if (searchingData.toolName === "" && searchingData.toolName === "") {
+      setNotFoundWork(false);
+      setResultSearching([]);
+    }
+  }, [searchingData]);
+
   return (
     <section className="sectionWorks">
       <input
@@ -64,6 +81,7 @@ export default function WorksRoute({ worksList }) {
       />
 
       {showForm && <FormAddWork showForm={handleShowForm} />}
+
       {searchingData.toolName.length > 0 ||
       searchingData.workName.length > 0 ? (
         <button onClick={onClickSearching} className="work-searching-button">
@@ -79,7 +97,9 @@ export default function WorksRoute({ worksList }) {
       </button>
 
       <ul className="ul-listWorks">
-        {resultSearching.length > 0 ? (
+        {loading ? <LoaderMain/> : resultSearching.length > 0 &&
+        (searchingData.toolName.trim() !== "" ||
+          searchingData.workName.trim() !== "") ? (
           resultSearching.map((work) => (
             <WorkElement
               setWorkData={setWorkIdToEdit}
@@ -87,6 +107,8 @@ export default function WorksRoute({ worksList }) {
               dataWork={work}
             />
           ))
+        ) : !resultSearching.length && notFoundWork ? (
+          <span>No se encontraron obras o herramientas</span>
         ) : worksList.length > 0 ? (
           worksList.map((work) => (
             <WorkElement
