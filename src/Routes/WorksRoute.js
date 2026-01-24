@@ -51,14 +51,14 @@ export default function WorksRoute({ worksList }) {
       <input
         type="text"
         name="toolName"
-        placeholder="Buscar Herramienta"
+        placeholder="Buscar herramienta"
         onChange={handleSearchWork}
         className="input-search"
       />
       <input
         type="text"
         name="workName"
-        placeholder="Buscar Obra"
+        placeholder="Buscar obra"
         onChange={handleSearchWork}
         className="input-search"
       />
