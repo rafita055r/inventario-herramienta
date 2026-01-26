@@ -1,31 +1,10 @@
 import "./styles/HistoryMovements.css"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useStore from "../services/useStore";
 import LoaderMain from "../Components/LoaderMain";
 
 export default  function HistoryMovementRoutes(){
     const {history, cargarDatosDesdeAPI} = useStore();
-    const [showForm, setShowForm] = useState(false);
-    const [formData, setFormData] = useState({
-        toolMoved: '',
-        from: '',
-        to: '',
-        date: '',
-        horary: ''
-    });
-    
-    // const toggleForm = () => setShowForm(!showForm);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormData({ toolMoved: '', from: '', to: '', date: '', horary: '' });
-        setShowForm(false);
-    };
 
     useEffect(()=>{
         cargarDatosDesdeAPI();
@@ -33,20 +12,6 @@ export default  function HistoryMovementRoutes(){
 
     return(
         <section className="sectionListMovement">
-            {/* <button className="btn-add" onClick={toggleForm}>
-                {showForm ? "Cancelar" : "Agregar Movimiento"}
-            </button> */}
-
-            {showForm && (
-                <form className="form-movement" onSubmit={handleSubmit}>
-                    <input name="toolMoved" placeholder="herramienta" value={formData.toolMoved} onChange={handleChange} required />
-                    <input name="from" placeholder="desde" value={formData.from} onChange={handleChange} required />
-                    <input name="to" placeholder="hasta" value={formData.to} onChange={handleChange} required />
-                    <input name="date" placeholder="fecha (dd/mm/aa)" value={formData.date} onChange={handleChange} required />
-                    <input name="horary" placeholder="hora (hh:mm)" value={formData.horary} onChange={handleChange} required />
-                    <button type="submit">Guardar</button>
-                </form>
-            )}
             
             <div className="movement-subtitleInfo">
                 <span className="span-tools">herramienta</span>
