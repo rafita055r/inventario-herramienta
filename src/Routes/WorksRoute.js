@@ -97,7 +97,7 @@ export default function WorksRoute({ worksList }) {
       </button>
 
       <ul className="ul-listWorks">
-        {loading ? <LoaderMain/> : resultSearching.length > 0 &&
+        {loading ? <LoaderMain/> : resultSearching.length &&
         (searchingData.toolName.trim() !== "" ||
           searchingData.workName.trim() !== "") ? (
           resultSearching.map((work) => (

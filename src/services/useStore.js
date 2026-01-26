@@ -43,10 +43,22 @@ const useStore = create((set, get) => ({
         `${apiBaseUrl}/obras?nameWork=${workName}&nameTool=${toolName}`
       );
       const filteredWorks = await res.json();
+      console.log(filteredWorks);
       
       return filteredWorks;
     } catch (error) {
       return error;
+    }
+  },
+  getToolByName: async (nameTool)=>{
+    try {
+      const result = await fetch(`${apiBaseUrl}/herramientas?name=${nameTool}`);
+      if(!result.ok) throw new Error("Error HTTP: ", result.status)
+      
+      const data = await result.json()
+      return data
+    } catch (error) {
+      console.log(error);
     }
   },
 
