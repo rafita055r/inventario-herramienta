@@ -59,7 +59,7 @@ const useStore = create((set, get) => ({
     const obras = await obrasRes.json();
     const history = await historyRes.json();
 
-    set({ herramientas, obras, history });
+    set({ herramientas, obras, history: history.reverse() });
   },
 }));
 

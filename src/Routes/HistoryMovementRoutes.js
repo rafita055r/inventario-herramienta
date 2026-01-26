@@ -22,7 +22,7 @@ export default  function HistoryMovementRoutes(){
             </div>
             <ul>
                 {
-                    history.length > 0 ? history.reverse().map((registro)=>(
+                    history.length > 0 ? history.map((registro)=>(
                         <li key={registro.id_register}>
                             <p className="p-tools">{registro.tool.nombre}</p>
                             <p className="p-cantidad">{registro.cantidad}</p>
