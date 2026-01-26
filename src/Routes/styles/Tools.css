@@ -4,6 +4,40 @@
 .main-tool{
     margin-top: 80px;
 }
+
+.contain-search-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+.input-search-tool{
+    font-size: 1.2rem;
+    padding: 12px 15px;
+    outline: none;
+    width: 84vw;
+    border-radius: 50px;
+    border: #333 solid 1.2px;
+}
+.btn-search-tool{
+    position: absolute;
+    background: none;
+    border:  #333 solid 1.2px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 100%;
+    right: 0;
+    font-size: 2rem;
+    border-left: none;
+    padding: 0px 8px;
+    padding-right: 12px;
+    padding-top: 6px;
+    background-color: #00664d;
+    color: #fefefe;
+}
+
 .sectionTools{
     margin-top: 20px;
     display: flex;
