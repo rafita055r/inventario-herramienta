@@ -4,8 +4,7 @@
     grid-template-columns: 40px 1fr 1fr 1fr 1fr min-content;
     border-bottom: 1px solid  #4e4e4e31;
     align-items: center;
-    gap: 5px;
-
+    gap: 5px;  
 }
 .moveToolBtn{
     border: none;
@@ -16,9 +15,12 @@
     color: #fefefe;
     border-radius: 5px;
 }
-.toolnameTools, .tool-medida, .tool-brand, .tool-state {
+.toolnameTools, .tool-brand, .tool-state {
     text-align: center;
     width: 60px;
+}
+.tool-medidas{
+width: 60px;
 }
 .tool-nameTools{
     width: 120px !important;
@@ -26,4 +28,10 @@
 .tool-quantity{
     border-right: 1px solid #4e4e4e;
     text-align: center;
+}
+
+@media (min-width: 800px){
+    .toolInWork{
+        width: 60%;
+    }
 }

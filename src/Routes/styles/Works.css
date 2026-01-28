@@ -1,10 +1,11 @@
 .sectionWorks {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-  margin-top: 60px;
+  align-items: center;
+  width: 100%;
+  /* margin-top: 60px; */
+  overflow: hidden;
+  position: relative;
 }
 
 .input-search {
@@ -14,6 +15,7 @@
   border-radius: 6px;
   border: 1px solid #5e5e5e71;
   outline: none;
+  width: 85%;
 }
 .input-search:focus {
   border: 2px solid #00664d;
@@ -26,6 +28,7 @@
   padding: 5px 0;
   width: 100%;
   margin-top: 20px;
+  overflow: scroll;
 }
 
 /* ----------------------------------- */
@@ -37,12 +40,14 @@
   background-color: #33333321;
   border-radius: 6px;
   margin: 10px 0;
+  width: 80%;
 }
 
 .add-work-button {
   padding: 7px 16px;
   margin-bottom: 16px;
   font-size: 1.05rem;
+  width: 90%;
   background-color: #000;
   color: #fff;
   border: none;
@@ -62,6 +67,7 @@
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.2s ease;
+  width: 90%;
 }
 
 .work-searching-button:hover {
@@ -76,6 +82,7 @@
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 1.2rem;
 }
 
 .add-work-form button {
@@ -87,8 +94,27 @@
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.2s ease;
+  font-size: 1.2rem;
 }
 
 .add-work-form button:hover {
   background-color: #00664d;
+}
+
+@media (min-width: 800px){
+  .sectionWorks{
+    align-items: start;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  .input-search{
+    left: 0;
+    width: 400px;
+  }
+  .add-work-button{
+    width: 435px;
+  }
+  .add-work-form{
+    width: 400px;
+  }
 }

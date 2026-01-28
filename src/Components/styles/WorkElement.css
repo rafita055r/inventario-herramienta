@@ -4,6 +4,7 @@
   list-style: none;
   border-bottom: 1px solid #4242423d;
   width: 100%;
+  overflow: none;  
 }
 .li_Work h3{
   padding-left: 10px;
@@ -57,6 +58,16 @@
 .listTools {
   list-style-type: none;
   padding: 0;
-  overflow-x: scroll;
-}
+  overflow: scroll;
   
+}
+
+@media (min-width: 800px) {
+  .contain_btnDel_btnUpd{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+}

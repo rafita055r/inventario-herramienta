@@ -14,7 +14,7 @@ export default function WorksRoute({ worksList }) {
     workName: "",
     toolName: "",
   });
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [notFoundWork, setNotFoundWork] = useState(false);
   const [resultSearching, setResultSearching] = useState([]);
   const [data_work, setDataWork] = useState({});
@@ -45,7 +45,7 @@ export default function WorksRoute({ worksList }) {
   };
 
   const onClickSearching = async () => {
-    setLoading(true)
+    setLoading(true);
     const dataFounded = await searchToolsAndWorks(
       searchingData.workName,
       searchingData.toolName
@@ -53,7 +53,7 @@ export default function WorksRoute({ worksList }) {
     !dataFounded.length
       ? setNotFoundWork(true)
       : setResultSearching(dataFounded);
-    setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -97,9 +97,11 @@ export default function WorksRoute({ worksList }) {
       </button>
 
       <ul className="ul-listWorks">
-        {loading ? <LoaderMain/> : resultSearching.length &&
-        (searchingData.toolName.trim() !== "" ||
-          searchingData.workName.trim() !== "") ? (
+        {loading ? (
+          <LoaderMain />
+        ) : resultSearching.length &&
+          (searchingData.toolName.trim() !== "" ||
+            searchingData.workName.trim() !== "") ? (
           resultSearching.map((work) => (
             <WorkElement
               setWorkData={setWorkIdToEdit}

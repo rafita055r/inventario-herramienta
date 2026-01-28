@@ -17,13 +17,14 @@ function App() {
 
   return (
     <HashRouter>
-        <NavBar />
-      <Routes>
-        <Route path='/' element={<HistoryMovementRoutes history={history} />} />
-        <Route path='/obras' element={<WorksRoute worksList={obras} />} />
-        <Route path='/herramientas' element={<ToolsRoute toolsList={herramientas} />} />
-        <Route path='/herramientas/:id' element={<ToolDetail />} />
-      </Routes>
+      <NavBar>
+        <Routes>
+          <Route path='/' element={<HistoryMovementRoutes history={history} />} />
+          <Route path='/obras' element={<WorksRoute worksList={obras} />} />
+          <Route path='/herramientas' element={<ToolsRoute toolsList={herramientas} />} />
+          <Route path='/herramientas/:id' element={<ToolDetail />} />
+        </Routes>
+      </NavBar>
     </HashRouter>
   );
 }

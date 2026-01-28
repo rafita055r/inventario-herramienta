@@ -9,7 +9,7 @@ const routeTitles = {
     '/herramientas': 'Herramientas',
   };
 
-export default  function NavBar(){
+export default  function NavBar({children}){
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
     const state = location?.state    
@@ -27,7 +27,7 @@ export default  function NavBar(){
                 <h1 className="page-title">{pageTitle}</h1>
             </header>
         
-            <div className={`side-drawer ${isOpen ? 'open' : ''}`}>
+            <div className={`side-drawer ${isOpen ? 'open' : ''} nav-mobile`}>
                 <button className="close-btn" onClick={toggleDrawer}>
                 ✖
                 </button>
@@ -40,8 +40,19 @@ export default  function NavBar(){
                 </nav>
             </div>
         
-          {/* Fondo oscuro opcional */}
           {isOpen && <div className="backdrop" onClick={toggleDrawer}></div>}
+          <div className='content-navMain-desktop'>
+            <nav className="nav-desktop">
+                <ul>
+                    <li><NavLink to="/obras">Obras</NavLink></li>
+                    <li><NavLink to="/herramientas">Herramientas</NavLink></li>
+                    <li><NavLink to="/">Movimientos</NavLink></li>
+                </ul>
+            </nav>
+            <main className='main-content'>
+              {children}
+            </main>
+          </div>
         </>
       );
 }

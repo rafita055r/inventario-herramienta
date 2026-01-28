@@ -102,7 +102,7 @@ export default function FormAddTool({showForm}){
                 ))
               }
             </select>
-            <p style={{color:'#2a44a8', textAlign: 'center', fontSize: "14px"}}>La ubicacion de la herramienta por defecto es Galpon</p>
+            <p style={{color:'#2a44a8', textAlign: 'center', fontSize: "18px"}}>La ubicacion de la herramienta por defecto es Galpon</p>
             
             <input type="text" className="input-observacion" name='observacion' defaultValue={formData.observacion} placeholder='observaciones'/>
             {
